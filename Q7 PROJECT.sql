@@ -1,0 +1,9 @@
+#query >= ALL
+SELECT MapID
+FROM Game
+GROUP BY MapID
+HAVING COUNT(*) >= ALL (
+    SELECT COUNT(*)
+    FROM Game
+    GROUP BY MapID
+);
